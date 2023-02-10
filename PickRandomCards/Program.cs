@@ -1,0 +1,23 @@
+﻿// See https://aka.ms/new-console-template for more information
+
+using PickRandomCards;
+
+Console.Write("Enter the number of cards to pick: ");
+string line = Console.ReadLine();
+Console.Write("Number of hands: ");
+int hands = int.Parse(Console.ReadLine());
+
+if (int.TryParse(line, out int numberOfCards))
+{
+    for (int i = 0; i < hands; i++) {
+        Console.WriteLine($"Hand #{i+1}");
+        foreach (string card in CardPicker.PickSomeCards(numberOfCards))
+        {
+            Console.WriteLine(card);
+        }
+    }
+}
+else
+{
+    Console.WriteLine("Please enter a valid number.");
+}
